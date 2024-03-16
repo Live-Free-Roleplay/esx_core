@@ -23,43 +23,44 @@ Config.StartingAccountMoney = { bank = 50000 }
 Config.StartingInventoryItems = false -- table/false
 
 Config.DefaultSpawns = { -- If you want to have more spawn positions and select them randomly uncomment commented code or add more locations
-    { x = 222.2027, y = -864.0162, z = 30.2922, heading = 1.0 },
-    --{x = 224.9865, y = -865.0871, z = 30.2922, heading = 1.0},
-    --{x = 227.8436, y = -866.0400, z = 30.2922, heading = 1.0},
-    --{x = 230.6051, y = -867.1450, z = 30.2922, heading = 1.0},
-    --{x = 233.5459, y = -868.2626, z = 30.2922, heading = 1.0}
+	{x = -269.4, y = -955.3, z = 31.2, heading = 205.8},
+	--{x = 224.9865, y = -865.0871, z = 30.2922, heading = 1.0},
+	--{x = 227.8436, y = -866.0400, z = 30.2922, heading = 1.0},
+	--{x = 230.6051, y = -867.1450, z = 30.2922, heading = 1.0},
+	--{x = 233.5459, y = -868.2626, z = 30.2922, heading = 1.0}
 }
 
 Config.AdminGroups = {
-    ["owner"] = true,
-    ["admin"] = true,
+	['owner'] = true,
+	['admin'] = true
 }
+
 
 Config.EnablePaycheck = true -- enable paycheck
 Config.LogPaycheck = false -- Logs paychecks to a nominated Discord channel via webhook (default is false)
 Config.EnableSocietyPayouts = false -- pay from the society account that the player is employed at? Requirement: esx_society
-Config.MaxWeight = 24 -- the max inventory weight without backpack
+Config.MaxWeight = 50 -- the max inventory weight without backpack
 Config.PaycheckInterval = 7 * 60000 -- how often to recieve pay checks in milliseconds
 Config.EnableDebug = false -- Use Debug options?
-Config.EnableDefaultInventory = true -- Display the default Inventory ( F2 )
+Config.EnableDefaultInventory    = false      -- Display the default Inventory ( F2 )
 Config.EnableWantedLevel = false -- Use Normal GTA wanted Level?
 Config.EnablePVP = true -- Allow Player to player combat
 
-Config.Multichar = GetResourceState("esx_multicharacter") ~= "missing"
+Config.Multichar                 = true
 Config.Identity = true -- Select a characters identity data before they have loaded in (this happens by default with multichar)
 Config.DistanceGive = 4.0 -- Max distance when giving items, weapons etc.
 
 Config.AdminLogging = false -- Logs the usage of certain commands by those with group.admin ace permissions (default is false)
 
-Config.DisableHealthRegeneration = false -- Player will no longer regenerate health
-Config.DisableVehicleRewards = false -- Disables Player Recieving weapons from vehicles
-Config.DisableNPCDrops = false -- stops NPCs from dropping weapons on death
-Config.DisableDispatchServices = false -- Disable Dispatch services
-Config.DisableScenarios = false -- Disable Scenarios
-Config.DisableWeaponWheel = false -- Disables default weapon wheel
-Config.DisableAimAssist = false -- disables AIM assist (mainly on controllers)
-Config.DisableVehicleSeatShuff = false -- Disables vehicle seat shuff
-Config.DisableDisplayAmmo = false -- Disable ammunition display
+Config.DisableHealthRegeneration = true -- Player will no longer regenerate health
+Config.DisableVehicleRewards = true -- Disables Player Recieving weapons from vehicles
+Config.DisableNPCDrops = true -- stops NPCs from dropping weapons on death
+Config.DisableDispatchServices = true -- Disable Dispatch services
+Config.DisableScenarios = true -- Disable Scenarios
+Config.DisableWeaponWheel = true -- Disables default weapon wheel
+Config.DisableAimAssist = true -- disables AIM assist (mainly on controllers)
+Config.DisableVehicleSeatShuff = true -- Disables vehicle seat shuff
+Config.DisableDisplayAmmo = true -- Disable ammunition display
 Config.RemoveHudComponents = {
     [1] = false, --WANTED_STARS,
     [2] = false, --WEAPON_ICON
