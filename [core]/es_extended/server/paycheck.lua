@@ -26,7 +26,7 @@ function StartPayCheck()
                   if account.money >= salary then -- does the society money to pay its employees?
                     xPlayer.addAccountMoney('bank', salary, "Paycheck")
                     account.removeMoney(salary)
-		    TriggerEvent('ap-government:server:systemTax', player, "Player", salary)
+		    --TriggerEvent('ap-government:server:systemTax', player, "Player", salary)
                     if Config.LogPaycheck then
                       ESX.DiscordLogFields("Paycheck", "Paycheck - " .. jobLabel, "green", {
                         { name = "Player", value = xPlayer.name,   inline = true },
@@ -43,7 +43,7 @@ function StartPayCheck()
                 end)
               else -- not a society
                 xPlayer.addAccountMoney('bank', salary, "Paycheck")
-		TriggerEvent('ap-government:server:systemTax', player, "Player", salary)
+		--TriggerEvent('ap-government:server:systemTax', player, "Player", salary)
                 if Config.LogPaycheck then
                   ESX.DiscordLogFields("Paycheck", "Paycheck - " .. jobLabel, "green", {
                     { name = "Player", value = xPlayer.name,   inline = true },
@@ -57,7 +57,7 @@ function StartPayCheck()
             end)
           else -- generic job
             xPlayer.addAccountMoney('bank', salary, "Paycheck")
-	    TriggerEvent('ap-government:server:systemTax', player, "Player", salary)
+	    --TriggerEvent('ap-government:server:systemTax', player, "Player", salary)
             if Config.LogPaycheck then
               ESX.DiscordLogFields("Paycheck", "Paycheck - Generic", "green", {
                 { name = "Player", value = xPlayer.name,   inline = true },
