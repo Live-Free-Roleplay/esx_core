@@ -6,6 +6,7 @@ lua54 'yes'
 version '1.10.5'
 
 shared_scripts {
+	'@ox_lib/init.lua',
 	'locale.lua',
 	'locales/*.lua',
 
