@@ -1,12 +1,14 @@
 fx_version 'adamant'
-
 lua54 'yes'
 game 'gta5'
-version '1.10.5'
+version '1.9.4'
 author 'ESX-Framework'
 description 'Official NUI Notification system for ESX'
 
-shared_script '@es_extended/imports.lua'
+shared_scripts {
+    '@es_extended/imports.lua',
+    '@ox_lib/init.lua'
+}
 
 client_scripts { 'Notify.lua' }
 

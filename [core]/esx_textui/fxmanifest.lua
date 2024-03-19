@@ -1,13 +1,14 @@
 fx_version 'adamant'
-
 game 'gta5'
 author 'ESX-Framework'
-version '1.10.5'
+version '1.9.4'
 description 'ESX TextUI'
 lua54 'yes'
-
 client_scripts { 'TextUI.lua' }
-shared_script '@es_extended/imports.lua'
+shared_scripts {
+    '@es_extended/imports.lua',
+    '@ox_lib/init.lua'
+}
 ui_page 'nui/index.html'
 
 files {
