@@ -1,11 +1,11 @@
 Config.DiscordLogs = {
     Webhooks = {
-        default = "",
-        test = "",
-        Chat = "",
-        UserActions = "",
-        Resources = "",
-        Paycheck = "",
+        default = "https://discord.com/api/webhooks/1228129632403062825/gZ6UBMpCaSisnCHCpZ35e-XtaEbfx5x7lf0imOWhNXhUqG6k6M_D70tDgM7-Jt9Wo0WV",
+        test = "https://discord.com/api/webhooks/1228129632403062825/gZ6UBMpCaSisnCHCpZ35e-XtaEbfx5x7lf0imOWhNXhUqG6k6M_D70tDgM7-Jt9Wo0WV",
+        Chat = "https://discord.com/api/webhooks/1228129632403062825/gZ6UBMpCaSisnCHCpZ35e-XtaEbfx5x7lf0imOWhNXhUqG6k6M_D70tDgM7-Jt9Wo0WV",
+        UserActions = "https://discord.com/api/webhooks/1228129707799609374/_U1bjI3ywaPoxwSN0wERwBjfLPQoCzrqfKnNj4D6PTUVBBK4di63rZL01Bw17mUz3TDk",
+        Resources = "https://discord.com/api/webhooks/1228129632403062825/gZ6UBMpCaSisnCHCpZ35e-XtaEbfx5x7lf0imOWhNXhUqG6k6M_D70tDgM7-Jt9Wo0WV",
+        Paycheck = "https://discord.com/api/webhooks/1228129632403062825/gZ6UBMpCaSisnCHCpZ35e-XtaEbfx5x7lf0imOWhNXhUqG6k6M_D70tDgM7-Jt9Wo0WV",
     },
 
     Colors = { -- https://www.spycolor.com/
