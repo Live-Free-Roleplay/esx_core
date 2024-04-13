@@ -2,8 +2,8 @@ SetMapName("San Andreas")
 SetGameType("ESX Legacy")
 
 local oneSyncState = GetConvar("onesync", "off")
-local newPlayer = "INSERT INTO `users` SET `accounts` = ?, `identifier` = ?, `group` = ?"
-local loadPlayer = "SELECT `accounts`, `job`, `job_grade`, `group`, `position`, `inventory`, `skin`, `loadout`, `metadata`"
+local newPlayer = "INSERT INTO `users` SET `accounts` = ?, `identifier` = ?, `license` = ?, `slot` = ?, `group` = ?"
+local loadPlayer = "SELECT `license`, `accounts`, `job`, `job_grade`, `group`, `position`, `inventory`, `skin`, `loadout`, `metadata`"
 
 if Config.Multichar then
     newPlayer = newPlayer .. ", `firstname` = ?, `lastname` = ?, `dateofbirth` = ?, `sex` = ?, `height` = ?"
@@ -26,11 +26,13 @@ if Config.Multichar then
         end
 
         if not ESX.Players[src] then
-            local identifier = char .. ":" .. ESX.GetIdentifier(src)
+            local license = ESX.GetIdentifier(src)
+            local slot = char
             if data then
-                createESXPlayer(identifier, src, data)
+                createESXPlayer(license, slot, src, data)
             else
-                loadESXPlayer(identifier, src, false)
+                local result = MySQL.single.await("SELECT identifier FROM users WHERE license = ? AND slot = ? LIMIT 1", { license, slot })
+                loadESXPlayer(result.identifier, src, false)
             end
         end
     end)
@@ -71,7 +73,7 @@ function onPlayerJoined(playerId)
     end
 end
 
-function createESXPlayer(identifier, playerId, data)
+function createESXPlayer(license, slot, playerId, data)
     local accounts = {}
 
     for account, money in pairs(Config.StartingAccountMoney) do
@@ -84,7 +86,8 @@ function createESXPlayer(identifier, playerId, data)
         defaultGroup = "admin"
     end
 
-    local parameters = Config.Multichar and { json.encode(accounts), identifier, defaultGroup, data.firstname, data.lastname, data.dateofbirth, data.sex, data.height } or { json.encode(accounts), identifier, defaultGroup }
+    local identifier = ESX.GetRandomString(40)
+    local parameters = Config.Multichar and { json.encode(accounts), identifier, license, slot, defaultGroup, data.firstname, data.lastname, data.dateofbirth, data.sex, data.height } or { json.encode(accounts), identifier, defaultGroup }
 
     if Config.StartingInventoryItems then
         table.insert(parameters, json.encode(Config.StartingInventoryItems))
@@ -248,7 +251,7 @@ function loadESXPlayer(identifier, playerId, isNew)
     userData.metadata = (result.metadata and result.metadata ~= "") and json.decode(result.metadata) or {}
 
     -- xPlayer Creation
-    local xPlayer = CreateExtendedPlayer(playerId, identifier, userData.group, userData.accounts, userData.inventory, userData.weight, userData.job, userData.loadout, GetPlayerName(playerId), userData.coords, userData.metadata)
+    local xPlayer = CreateExtendedPlayer(playerId, identifier, result.license, userData.group, userData.accounts, userData.inventory, userData.weight, userData.job, userData.loadout, GetPlayerName(playerId), userData.coords, userData.metadata)
     ESX.Players[playerId] = xPlayer
     Core.playersByIdentifier[identifier] = xPlayer
 

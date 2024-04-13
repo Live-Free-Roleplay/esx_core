@@ -22,7 +22,7 @@ local _assert = assert
 ---@param name string
 ---@param coords table | vector4
 ---@param metadata table
-function CreateExtendedPlayer(playerId, identifier, group, accounts, inventory, weight, job, loadout, name, coords, metadata)
+function CreateExtendedPlayer(playerId, identifier, license, group, accounts, inventory, weight, job, loadout, name, coords, metadata)
     local targetOverrides = Config.PlayerFunctionOverride and Core.PlayerFunctionOverrides[Config.PlayerFunctionOverride] or {}
 
     local self = {}
@@ -43,7 +43,7 @@ function CreateExtendedPlayer(playerId, identifier, group, accounts, inventory, 
     self.metadata = metadata
     self.admin = Core.IsPlayerAdmin(playerId)
     if Config.Multichar then
-        self.license = "license" .. identifier:sub(identifier:find(":"), identifier:len())
+        self.license = "license:" .. license
     else
         self.license = "license:" .. identifier
     end
