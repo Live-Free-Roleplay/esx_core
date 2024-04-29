@@ -567,7 +567,7 @@ ESX.RegisterCommand("tpm", "admin", function(xPlayer)
     end
 end, false)
 
-ESX.RegisterCommand(
+--[[ESX.RegisterCommand(
     "goto",
     "admin",
     function(xPlayer, args)
@@ -616,7 +616,7 @@ ESX.RegisterCommand(
             { name = "playerId", help = TranslateCap("commandgeneric_playerid"), type = "player" },
         },
     }
-)
+)--]]
 
 ESX.RegisterCommand(
     "kill",
@@ -687,7 +687,7 @@ ESX.RegisterCommand(
     }
 )
 
-ESX.RegisterCommand("noclip", "admin", function(xPlayer)
+--[[ESX.RegisterCommand("noclip", "admin", function(xPlayer)
     xPlayer.triggerEvent("esx:noclip")
     if Config.AdminLogging then
         ESX.DiscordLogFields("UserActions", "Admin NoClip /noclip Triggered!", "pink", {
@@ -695,7 +695,7 @@ ESX.RegisterCommand("noclip", "admin", function(xPlayer)
             { name = "ID", value = xPlayer and xPlayer.source or "Unknown ID", inline = true },
         })
     end
-end, false)
+end, false)--]]
 
 ESX.RegisterCommand("players", "admin", function()
     local xPlayers = ESX.GetExtendedPlayers() -- Returns all xPlayers
