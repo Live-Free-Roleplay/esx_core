@@ -155,7 +155,7 @@ ESX.RegisterCommand(
     }
 )
 
-ESX.RegisterCommand(
+--[[ESX.RegisterCommand(
     { "fix", "repair" },
     "admin",
     function(xPlayer, args, showError)
@@ -187,7 +187,7 @@ ESX.RegisterCommand(
             { name = "playerId", help = TranslateCap("commandgeneric_playerid"), type = "player" },
         },
     }
-)
+)--]]
 
 ESX.RegisterCommand(
     "setaccountmoney",
