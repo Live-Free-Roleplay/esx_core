@@ -709,7 +709,8 @@ function ESX.Game.SetVehicleProperties(vehicle, props)
     end
 
     if props.plate ~= nil then
-        SetVehicleNumberPlateText(vehicle, props.plate)
+        --SetVehicleNumberPlateText(vehicle, props.plate)
+        exports["AdvancedParking"]:UpdatePlate(vehicle, props.plate)
     end
     if props.plateIndex ~= nil then
         SetVehicleNumberPlateTextIndex(vehicle, props.plateIndex)

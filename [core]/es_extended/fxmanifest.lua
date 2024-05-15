@@ -9,7 +9,7 @@ shared_scripts {
 	'@ox_lib/init.lua',
 	'locale.lua',
 	'locales/*.lua',
-
+  "fixDeleteVehicle.lua",
 	'config.lua',
 	'config.weapons.lua',
 }
